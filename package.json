@@ -5,8 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build:example": "tsc && vite build",
+    "build:prod": "tsc && vite build --mode production",
+    "preview": "vite preview",
+    "example": "pnpm build:example && vite preview --outDir example --open"
   },
   "dependencies": {
     "lit": "^3.2.1",

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de Uso - Chat Widget Pro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+
+    h1 {
+      color: #005A9C;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    code {
+      background: #f1f1f1;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    .widget-container {
+      min-height: 200px;
+      border: 1px dashed #ccc;
+      padding: 20px;
+    }
+  </style>
+  <!-- Script principal del widget -->
+  <script type="module" src="/src/main.ts"></script>
+</head>
+
+<body>
+  <h1>Chat Widget Pro - Ejemplo de Uso</h1>
+
+  <section>
+    <h2>1. Desarrollo (Vite)</h2>
+    <p>Importa el módulo principal para pruebas en desarrollo:</p>
+    <pre><code>&lt;script type="module" src="/src/main.ts"&gt;&lt;/script&gt;</code></pre>
+    <div class="widget-container">
+      <chat-widget form-url="/api/start" chat-url="/api/chat" position="bottom-left" start-open>
+        <!-- Ejemplo de uso del slot con un SVG personalizado -->
+        <svg slot="bubble-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="30px"
+          height="30px">
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+        </svg>
+      </chat-widget>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Producción (Build)</h2>
+    <p>Tras compilar la librería, importa el bundle ES:</p>
+    <pre><code>&lt;script type="module" src="./dist/chat-widget.es.js"&gt;&lt;/script&gt;</code></pre>
+    <p>Incluye también <code>lit</code> desde CDN:</p>
+    <pre><code>  &lt;script type="module"
+    src="https://cdn.jsdelivr.net/npm/lit@latest/lit.min.js"
+  &gt;&lt;/script&gt;</code></pre>
+    <div class="widget-container">
+      <chat-widget form-url="https://mi-backend.com/start" chat-url="https://mi-backend.com/chat" position="top-right"
+        enable-phone enable-subject>
+        <!-- Puedes usar el slot aquí también -->
+        <span slot="bubble-icon" style="font-size: 24px;">🚀</span>
+      </chat-widget>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Modo Dev Sin Backend</h2>
+    <p>Simula la conversación sin servidor:</p>
+    <pre><code>&lt;chat-widget dev-mode welcome-message="¡Hola {name}, esto es una demo!"&gt;&lt;/chat-widget&gt;</code></pre>
+    <div class="widget-container">
+      <chat-widget dev-mode start-open welcome-message="¡Hola {name}, bienvenido al demo!"></chat-widget>
+    </div>
+  </section>
+
+</body>
+
+</html>

@@ -8,7 +8,7 @@
     "build:example": "tsc && vite build",
     "build:prod": "tsc && vite build --mode production",
     "preview": "vite preview",
-    "example": "pnpm build:example && vite preview --outDir example --open"
+    "example": "pnpm vite preview --outDir example --open"
   },
   "dependencies": {
     "lit": "^3.2.1",
